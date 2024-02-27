@@ -23,7 +23,7 @@ public class MedicalDeclarationController {
     private static final String[] allExposureHistory = {"Đến trang trại chăn nuôi/ chợ buôn bán động vật sống/cơ sở giết mổ động vật/tiếp xúc động vật",
         "Tiếp xúc gần (<2m) với người mắc bệnh viêm đường hô hấp do nCoV"};
     private static final String[] allSymptomsList = {"Sốt", "Nôn/buồn nôn", "Ho", "Tiêu chảy", "Khó thở", "Xuất huyết ngoài da", "Đau họng", "Nổi ban ngoài da"};
-    @GetMapping("")
+    @GetMapping(value = "", produces = "text/plain; charset=UTF-8")
     public String showList(Model model){
         List<Declaration> declarationList = medicalDeclarationService.findAll();
         model.addAttribute("declarationList", declarationList);
@@ -57,7 +57,7 @@ public class MedicalDeclarationController {
         model.addAttribute("allExposureHistory", allExposureHistory);
         return "update";
     }
-    @PostMapping("/update")
+    @PostMapping(value = "/update", produces = "text/plain; charset=UTF-8")
     public String updateDeclaration(@ModelAttribute ("declaration") Declaration declaration,
                                     @RequestParam("dDay") String[] dDay,
                                     @RequestParam("eDay") String[] eDay,
