@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1c18d2b-6ec3-458f-909f-3680a27111f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/configuration/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/configuration/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/service/impl/HibernateCustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/customer_management/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/customers/info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/customers/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/controller/ImageOfDayController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/model/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/repository/IFeedbackRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/repository/Impl/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/repository/Impl/FeedbackRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/service/IFeedbackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/java/com/codegym/image_of_the_day/service/impl/FeedbackService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/webapp/WEB-INF/views/feedback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image_of_the_day/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/controller/MusicAppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/model/Song.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/model/SongForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/repository/IMusicAppRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/repository/Impl/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/repository/Impl/MusicAppRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/service/IMusicAppService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/java/com/codegym/music_app/service/Impl/MusicAppService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/resources/upload_file.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../music_app/src/main/webapp/WEB-INF/views/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/codegym/product_management/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/codegym/product_management/repository/Impl/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product_management/src/main/java/com/codegym/product_management/repository/Impl/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product_management/src/main/resources/hibernate.conf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DataBinding&amp;Form_sesson4/medical_declaration/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBinding&amp;Form_sesson4/medical_declaration/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../views&amp;ThymeLeaf_sesson3/product_management/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../views&amp;ThymeLeaf_sesson3/product_management/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../views&amp;ThymeLeaf_sesson3/product_management/src/main/java/com/codegym/product_management/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../views&amp;ThymeLeaf_sesson3/product_management/src/main/java/com/codegym/product_management/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../views&amp;ThymeLeaf_sesson3/product_management/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../views&amp;ThymeLeaf_sesson3/product_management/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="spring-beans.schema" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2czjtEQpVqiroqp6v5xUezfMi6Q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "H:/module4/CSDL&ORM/product_management",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "125ecef3bdbcd868958b0cb2a9bb0922",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.841" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.841" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
+      <deployment>
+        <artifact name="Gradle : com.codegym : customer_management-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="0c39fa08-f552-41f5-975f-83c22dd46b9a" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55249" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.codegym : customer_management-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1c18d2b-6ec3-458f-909f-3680a27111f2" name="Changes" comment="" />
+      <created>1709121517901</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709121517901</updated>
+      <workItem from="1709121518904" duration="2656000" />
+      <workItem from="1709126093914" duration="436000" />
+      <workItem from="1709191841069" duration="2595000" />
+      <workItem from="1709289838235" duration="1685000" />
+      <workItem from="1709294204649" duration="1809000" />
+      <workItem from="1709367813375" duration="90000" />
+      <workItem from="1709550009071" duration="21000" />
+      <workItem from="1709556167178" duration="625000" />
+      <workItem from="1709557140422" duration="79000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

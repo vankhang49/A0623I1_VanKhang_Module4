@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--Khai bao vi tri dat class là controller, service..-->
+    <context:component-scan base-package="com.codegym.product_management"/>
+    <mvc:annotation-driven/>
+
+<!--    Khai bao vi tri dat view, duoi file cua view-->
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        <property name="prefix" value="/WEB-INF/views/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
+
+    <bean id="viewResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+
+    <bean id="engine" class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <property name="templateResolver" ref="viewResolver"/>
+    </bean>
+
+    <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="engine"/>
+    </bean>
+
+    <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
+</beans>

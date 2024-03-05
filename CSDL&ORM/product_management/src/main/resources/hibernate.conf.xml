@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/product_management?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">vankhang49</property>
+        <property name="hibernate.connection.password">abc@123</property>
+        <!--        Hiển thị cau lệnh query -->
+        <property name="show_sql">true</property>
+        <!--        Tự động update nếu entity có thay đổi.-->
+        <!--        Ngoài ra còn có create và none.-->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.codegym.product_management.model.Product"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="title" th:text="${blog.title}"></div>
+<div id="image">
+    <img width="100" height="100" th:src="@{'/image/' + ${blog.image}}" alt="">
+</div>
+<div id="content" th:text="${blog.content}"></div>
+</body>
+</html>

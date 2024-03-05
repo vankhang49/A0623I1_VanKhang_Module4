@@ -24,7 +24,8 @@ public class ProductController {
         return "list";
     }
     @GetMapping("/create")
-    public String showCreateForm(){
+    public String showCreateForm(Model model){
+        model.addAttribute("product", new Product());
         return "create";
     }
     @PostMapping("/create")

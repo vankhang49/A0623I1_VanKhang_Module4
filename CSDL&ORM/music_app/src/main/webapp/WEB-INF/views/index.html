@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Music app simple</h3>
+<p>
+    <a th:href="@{/music/create}">
+        Add new Song
+    </a>
+</p>
+<span th:text="${message}"></span>
+<table id = "songs" class="table">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên bài hát</th>
+        <th>Nghệ sĩ thực hiện</th>
+        <th>Thể loại nhạc</th>
+        <th>Phát</th>
+        <th>Chỉnh sửa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="song : ${songs}">
+        <td th:text="${song.id}"></td>
+        <td th:text="${song.nameSong}"></td>
+        <td th:text="${song.artist}"></td>
+        <td th:text="${song.kindOfMusic}"></td>
+        <td>
+            <audio controls th:src="'/music/' + ${song.path}"></audio>
+        </td>
+        <td>
+            <button class="btn btn-primary" ><a th:href="@{/music/{id}/update (id = ${song.id})}" class="link-light">Cập nhật</a></button>
+            <button class="btn btn-danger"><a th:href="@{/music/{id}/delete (id = ${song.id})}" class="link-light">Xoá</a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+<script th:replace="/layout :: bootstrap"></script>
+</body>
+</html>
