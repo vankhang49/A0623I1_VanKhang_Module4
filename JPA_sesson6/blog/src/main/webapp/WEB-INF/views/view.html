@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="/layout::head"></head>
 <body>
-<div id="title" th:text="${blog.title}"></div>
-<div id="image">
-    <img width="100" height="100" th:src="@{'/image/' + ${blog.image}}" alt="">
+<div class="container">
+    <div id="user" th:text="${blog.user}"></div>
+    <div id="title" th:text="${blog.title}"></div>
+    <div id="image">
+        <img th:src="@{'/image/' + ${blog.image}}" alt="">
+    </div>
+    <div id="content" th:text="${blog.content}"></div>
+    <div class="back">
+        <a th:href="@{/blogs}">
+            Back to Blog news
+        </a>
+    </div>
 </div>
-<div id="content" th:text="${blog.content}"></div>
+<footer th:replace="/layout::footer"></footer>
+<script th:replace="/layout::bootstrap"></script>
 </body>
 </html>

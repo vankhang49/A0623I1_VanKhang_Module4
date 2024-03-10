@@ -26,21 +26,18 @@ public class BlogController {
     private String fileUpload;
 
     @GetMapping("")
-    public String showList(Model model)
-    {
+    public String showList(Model model) {
         List<Blog> blogs = blogService.findAll();
         model.addAttribute("blogs",blogs);
         return "/list";
     }
     @GetMapping("/create")
-    public String showCreate(Model model)
-    {
+    public String showCreate(Model model) {
         model.addAttribute("blogForm",new BlogForm());
         return "/create";
     }
     @PostMapping("/save")
-    public String save(@ModelAttribute(name = "blogForm")BlogForm blogForm, RedirectAttributes redirectAttributes)
-    {
+    public String save(@ModelAttribute(name = "blogForm")BlogForm blogForm, RedirectAttributes redirectAttributes) {
         MultipartFile multipartFile = blogForm.getImage();
         String fileName = multipartFile.getOriginalFilename();
         try {
@@ -49,35 +46,31 @@ public class BlogController {
             ex.printStackTrace();
         }
         Blog blog = new Blog();
+        blog.setUser(blogForm.getUser());
         blog.setTitle(blogForm.getTitle());
         blog.setContent(blogForm.getContent());
         blog.setImage(fileName);
         blogService.save(blog);
+        redirectAttributes.addFlashAttribute("message", "Create new blog successfully!");
         return "redirect:/blogs";
     }
     @GetMapping("/{id}/edit")
-    public String showEdit(@PathVariable(name = "id") Long id, Model model)
-    {
+    public String showEdit(@PathVariable(name = "id") Long id, Model model) {
         Blog blog = blogService.findById(id);
-        BlogForm blogForm = new BlogForm(blog.getId(), blog.getTitle(), blog.getContent());
+        BlogForm blogForm = new BlogForm(blog.getId(), blog.getUser(), blog.getTitle(), blog.getContent());
         model.addAttribute("blogForm",blogForm);
         return "/edit";
     }
     @GetMapping("/{id}/view")
-    public String showView(@PathVariable(name = "id") Long id, Model model)
-    {
+    public String showView(@PathVariable(name = "id") Long id, Model model) {
         Blog blog = blogService.findById(id);
         model.addAttribute("blog",blog);
         return "/view";
     }
     @GetMapping ("/{id}/delete")
-    public String delete(@PathVariable(name = "id") Long id,RedirectAttributes redirectAttributes)
-    {
+    public String delete(@PathVariable(name = "id") Long id,RedirectAttributes redirectAttributes) {
         blogService.remove(id);
-        redirectAttributes.addFlashAttribute("success","you have successfully deleted a product !!!");
+        redirectAttributes.addFlashAttribute("message","Delete successfully!");
         return "redirect:/blogs";
     }
-
-
-
 }

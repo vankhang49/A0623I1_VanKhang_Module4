@@ -5,38 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Spring Customer</title>
-
+    <title>Blog app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style type="text/css">
-        h3{background-color: rgba(0, 0, 255, 0.38); color: white; padding: 10px 0 10px 20px;}
+        .header {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        h3{background-color: rgba(35, 50, 213, 0.38); color: white; padding: 10px 0 10px 20px;}
         footer{margin: 10px 0;}
-
-        #table {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        #table td, #table th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        #table tr:nth-child(even){background-color: #f2f2f2;}
-
-        #table tr:hover {background-color: #ddd;}
-
-        #table th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: rgba(76, 175, 80, 0.34);
-            color: white;
-        }
 
         input[type=text],input[type=email]{
             width: 100%;
-            padding: 12px 0px;
+            padding: 12px 0;
             margin: 8px 0;
             display: inline-block;
             border: 1px solid #ccc;
@@ -63,11 +46,11 @@
         #form {
             width: 500px;
             border-radius: 5px;
-            background-color: rgba(116, 88, 129, 0.76);
+            background-color: rgba(127, 158, 199, 0.76);;
             padding: 20px;
         }
 
-        .notify span{font-size: 15px; color: rgba(12, 12, 75, 0.4);}
+        .notify span{font-size: 15px; color: rgba(11, 69, 171, 0.4);}
         #form-search{
             display: flex;
         }
@@ -80,11 +63,30 @@
             padding: 10px;
             padding-top: 15px;
         }
+        #user {
+            font-weight: 600;
+            font-size: 16px;
+            display: inline;
+        }
+        #title {
+            font-size: 15px;
+            display: inline-block;
+        }
+        #image > img {
+            width: 300px;
+            height: 400px;
+        }
+        #content {
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
 <footer th:fragment="footer">
     &copy; 2021 CodeGym
 </footer>
+<script th:fragment="bootstrap" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

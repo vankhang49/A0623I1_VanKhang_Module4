@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head"></head>
+<body>
+<div class="container">
+    <div id="user" th:text="${blog.get().user}"></div>
+    <div id="title" th:text="${blog.get().title}"></div>
+    <div id="image">
+        <img th:src="@{'/image/' + ${blog.get().image}}" alt="">
+    </div>
+    <div id="content" th:text="${blog.get().content}"></div>
+    <div class="back">
+        <a th:href="@{/blogs}">
+            Back to Blog news
+        </a>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+<script th:replace="/layout::bootstrap"></script>
+</body>
+</html>

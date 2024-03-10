@@ -8,6 +8,7 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String user;
     private String title;
     private String image;
     private String content;
@@ -21,6 +22,14 @@ public class Blog {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getTitle() {
