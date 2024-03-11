@@ -41,7 +41,7 @@ public class CustomerController {
         customerService.save(customer);
         ModelAndView modelAndView = new ModelAndView("/customer/create");
         modelAndView.addObject("customer", new Customer());
-        modelAndView.addObject("message", "New customer created successfully");
+        modelAndView.addObject("message", "New comment posted successfully!");
         return modelAndView;
     }
 

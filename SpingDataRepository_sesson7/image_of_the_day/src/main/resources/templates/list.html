@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Image of the Day</h3>
+<p>
+    <a th:href="@{/image}">
+        Back to Image of this day
+    </a>
+</p>
+<form method="get" th:action="@{/image/list}">
+    <input name="authorSearch" th:value="${authorSearch}" class="form-control">
+    <button class="btn btn-primary">Searching</button>
+</form>
+<span th:text="${message}"></span>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Author</th>
+        <th>Point evaluation</th>
+        <th>Feedback</th>
+        <th>Likes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="feedback,iter : ${feedbackList.content}">
+        <td th:text="${iter.count}"></td>
+        <td th:text="${feedback.author}"></td>
+        <td th:switch="${feedback.point}">
+            <span th:case="5">+5 So awesome</span>
+            <span th:case="4">+4 Great</span>
+            <span th:case="3">+3 Not bad</span>
+            <span th:case="2">+2 Normal</span>
+            <span th:case="1">+1 Bad</span>
+        </td>
+        <td th:text="${feedback.comment}"></td>
+        <td>
+            <span th:text="${feedback.votes}" style="display: inline"></span>
+            <form method="post" th:action="@{/image/{id}/update(id=${feedback.id})}" style="display: inline-block">
+                <button type="submit">Like</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:if="${feedbackList.hasPrevious()}" th:href="@{/image/list(page = ${feedbackList.number - 1}, authorSearch = ${authorSearch})}">Previous page</a>
+<span th:each="pageNo: ${#numbers.sequence(0, feedbackList.totalPages - 1)}">
+    <a th:href="@{/image/list(page = ${pageNo}, authorSearch = ${authorSearch})}" th:text="${pageNo}"></a>
+</span>
+<a th:if="${feedbackList.hasNext()}" th:href="@{/image/list(page = ${feedbackList.number + 1}, authorSearch = ${authorSearch})}">Next page</a>
+</body>
+</html>
