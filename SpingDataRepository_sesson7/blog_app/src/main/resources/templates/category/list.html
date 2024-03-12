@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="header">
+    <h3 style="text-align: center">BLOG NEWS</h3>
+</div>
+<div class="container">
+    <a th:href="@{/categories/create}">Create new Blog</a>
+    <table id="table" class="table">
+        <thead>
+        <th>No</th>
+        <th>Category</th>
+        </thead>
+        <tbody>
+        <tr th:each="category,iter:${categories}">
+            <td th:text="${iter.count}"></td>
+            <td th:text="${category.getCategoryName()}"></td>
+            <td>
+                <button class="btn btn-primary" th:attr = "onclick=|window.location.href = '@{/categories/{id}/edit(id =${category.getCategoryId()})}'|">Update</button>
+            </td>
+            <td>
+                <button class="btn btn-primary" th:attr = "onclick=|window.location.href = '@{/categories/{id}/delete(id =${category.getCategoryId()})}'|">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="notify">
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+<script th:replace="/layout::bootstrap"></script>
+</body>
+</html>

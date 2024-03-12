@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    background-color: #8ba8ce;
+    height: 150vh;
+}
+.header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.logo {
+    position: relative;
+    left: 20px;
+}
+.logo .img {
+    width: 60px;
+}
+.tittle {
+    text-align: center;
+    position: relative;
+    left: 30%;
+}
+
+.tittle>h2{
+    color: #545151;
+    font-size: 40px;
+}
+.nav {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 60px;
+}
+.nav .add {
+    position: relative;
+    margin-left: 100px;
+}
+.nav .add>a {
+    color: #dea20c;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav .add>a:hover {
+    color: #de0c0c;
+    font-weight: 600;
+}
+.nav .search {
+    position: absolute;
+    right: 80px;
+}
+.nav .search .button {
+    background-color: #F5F5F5;
+    color: #045404;
+}
+.nav .search .button:hover {
+    background-color: #052cce;
+    color: #ffffff;
+}
+.bg-list {
+    width: 90%;
+    position: relative;
+    left: 5%;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.text-dark {
+    text-align: center;
+}
+.list {
+    padding: 20px;
+}
+/*----------------*/
+.background-form {
+    position: relative;
+    top: 40px;
+    /*height: 500px;*/
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    margin-bottom: 100px;
+}
+.form {
+    margin-bottom: 50px;
+}
+.table {
+    width: 100%;
+    border-color: transparent;
+}
+.danger{
+    display: block;
+}
+.input {
+    width: 400px;
+}
+.newForm {
+    width: 100%;
+    height: 700px;
+    margin-top: 70px;
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newForm iframe {
+    width: 100%;
+    height: 700px;
+}

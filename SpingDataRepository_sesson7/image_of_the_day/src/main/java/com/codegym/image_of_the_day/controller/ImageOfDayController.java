@@ -44,6 +44,7 @@ public class ImageOfDayController {
         }
         model.addAttribute("feedbackList", feedbackList);
         model.addAttribute("authorSearch", author);
+        model.addAttribute("page", page);
         return "/list";
     }
 
@@ -65,6 +66,6 @@ public class ImageOfDayController {
         }
         model.addAttribute("authorSearch", author);
         model.addAttribute("feedbackList", feedbackList);
-        return "/list";
+        return "redirect:/image/list?page=" + page + "&authorSearch=" + author;
     }
 }

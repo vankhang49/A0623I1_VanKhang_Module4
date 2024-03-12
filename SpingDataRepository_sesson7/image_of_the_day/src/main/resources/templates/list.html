@@ -41,6 +41,8 @@
         <td>
             <span th:text="${feedback.votes}" style="display: inline"></span>
             <form method="post" th:action="@{/image/{id}/update(id=${feedback.id})}" style="display: inline-block">
+                <input type="hidden" name="authorSearch" th:value="${authorSearch}"/>
+                <input type="hidden" name="page" th:value="${page}"/>
                 <button type="submit">Like</button>
             </form>
         </td>

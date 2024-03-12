@@ -31,7 +31,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     //Cấu hình upload file
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/image/**")
+        registry.addResourceHandler("/static/**")
                 .addResourceLocations("file:" + fileUpload);
     }
 }

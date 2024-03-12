@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class BlogForm {
     private Long id;
     private String user;
+    private Category category;
     private String title;
     private MultipartFile image;
     private String content;
@@ -12,9 +13,10 @@ public class BlogForm {
     public BlogForm() {
     }
 
-    public BlogForm(Long id, String user, String title, String content) {
+    public BlogForm(Long id, String user, Category category, String title, String content) {
         this.id = id;
         this.user = user;
+        this.category = category;
         this.title = title;
         this.content = content;
     }
@@ -66,4 +68,11 @@ public class BlogForm {
         this.content = content;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

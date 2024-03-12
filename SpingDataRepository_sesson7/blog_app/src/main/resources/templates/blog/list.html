@@ -14,6 +14,7 @@
         <thead>
         <th>No</th>
         <th>USER</th>
+        <th>Category</th>
         <th>TITLE</th>
         <th>EDIT</th>
         <th>DELETE</th>
@@ -23,6 +24,7 @@
         <tr th:each="blog:${blogs}">
             <td th:text="${blog.getId()}"></td>
             <td th:text="${blog.getUser()}"></td>
+            <td th:text="${blog.getCategory().getCategoryName()}"></td>
             <td th:text="${blog.getTitle()}"></td>
             <td>
                 <button class="btn btn-primary" th:attr = "onclick=|window.location.href = '@{/blogs/{id}/edit(id =${blog.getId()})}'|">Update</button>

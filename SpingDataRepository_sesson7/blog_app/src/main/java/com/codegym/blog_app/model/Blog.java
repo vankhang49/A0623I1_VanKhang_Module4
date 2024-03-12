@@ -9,6 +9,9 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String user;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
     private String title;
     private String image;
     private String content;
@@ -54,5 +57,13 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

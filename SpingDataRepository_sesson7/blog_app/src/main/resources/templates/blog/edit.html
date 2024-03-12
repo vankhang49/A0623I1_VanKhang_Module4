@@ -2,19 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<h3>Add new blog</h3>
+<h3>Edit blog</h3>
 <p>
     <a th:href="@{/blogs}">
         Back to Blog news
     </a>
 </p>
 <div id="form">
-    <form th:action="@{/blogs/save}" th:object="${blogForm}"
+    <form th:action="@{/blogs/update}" th:object="${blogForm}"
           method="POST" novalidate="novalidate" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label>User</label>
             <input type="text" th:field="*{user}"/>
+        </div>
+        <div>
+            <label>Category</label>
+            <select th:field="*{category}">
+                <option th:each="cate : ${categories}" th:value="${cate.categoryId}" th:text="${cate.categoryName}"></option>
+            </select>
         </div>
         <div>
             <label>Tile</label>
