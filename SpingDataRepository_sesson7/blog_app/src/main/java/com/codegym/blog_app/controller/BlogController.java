@@ -5,8 +5,11 @@ import com.codegym.blog_app.model.BlogForm;
 import com.codegym.blog_app.model.Category;
 import com.codegym.blog_app.service.IBlogService;
 import com.codegym.blog_app.service.ICategoryService;
+import com.codegym.blog_app.until.ConvertStringToMultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Optional;
 
 @Controller
@@ -30,12 +34,28 @@ public class BlogController {
 
     @ModelAttribute("categories")
     public Iterable<Category> categories(){ return categoryService.findAll(); }
+
     @GetMapping("")
-    public String showList(Model model) {
-        Iterable<Blog> blogs = blogService.findAll();
+    public String showList(Model model, @RequestParam(value = "page", defaultValue = "0") int page,
+                           @RequestParam(value = "titleSearch", defaultValue = "") String title,
+                           @RequestParam(value = "categoryName", defaultValue = "") String categoryName) {
+        if (page < 0) {
+            page = 0;
+        }
+//        Page<Blog> blogs = blogService.findAllByTitle(title, PageRequest.of(page, 5));
+        Page<Blog> blogs = blogService.findAllByTitleAndCategory(title, categoryName, PageRequest.of(page, 5));
+        if (blogs.isEmpty()) {
+            model.addAttribute("message", "No blogs found!");
+        }
         model.addAttribute("blogs",blogs);
-        return "/blog/test";
+        model.addAttribute("titleSearch", title);
+        model.addAttribute("categoryName", categoryName);
+        model.addAttribute("page", page);
+//        model.addAttribute("where", "list");
+//        model.addAttribute("what", "show-list");
+        return "/blog/list";
     }
+
     @GetMapping("/create")
     public String showCreate(Model model) {
         model.addAttribute("blogForm",new BlogForm());
@@ -65,8 +85,17 @@ public class BlogController {
     public String showEdit(@PathVariable(name = "id") Long id, Model model) {
         Optional<Blog> blog = blogService.findById(id);
         Blog b = blog.get();
-        BlogForm blogForm = new BlogForm(b.getId(), b.getUser(), b.getCategory(), b.getTitle(), b.getContent());
-        model.addAttribute("blogForm",blogForm);
+        String stringFile =  fileUpload + "images\\" + b.getImage();
+        try {
+            File file = new File(stringFile);
+            byte[] content = Files.readAllBytes(file.toPath()); // Đọc nội dung của file thành mảng byte
+            MultipartFile multipartFile = new ConvertStringToMultipartFile(content, file.getName()); // Truyền tên tệp tin vào đây
+            BlogForm blogForm = new BlogForm(b.getId(), b.getUser(), b.getCategory(), b.getTitle(), multipartFile, b.getContent());
+            model.addAttribute("blogForm", blogForm);
+        } catch (IOException e) {
+            // Xử lý nếu có lỗi khi đọc file
+            e.printStackTrace();
+        }
         return "/blog/edit";
     }
     @PostMapping("/update")
@@ -74,7 +103,7 @@ public class BlogController {
         MultipartFile multipartFile = blogForm.getImage();
         String fileName = multipartFile.getOriginalFilename();
         try {
-            File destFile = new File(fileUpload + fileName);
+            File destFile = new File(fileUpload + "images\\" + fileName);
             if (!destFile.exists()){
                 multipartFile.transferTo(destFile);
             }

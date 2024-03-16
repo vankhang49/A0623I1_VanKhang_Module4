@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+    <h3>MP3</h3>
+    <div class="container">
+        <a href="/web-app/create">Create</a>
+        <form method="get" action="/web-app">
+            <input name="nameSearch" th:value="${nameSearch}" class="form-control">
+            <button class="btn btn-primary">Search</button>
+        </form>
+        <h1>List Song</h1>
+        <table id="musics" class="table table-light">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Kind of music</th>
+                    <th>Path</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="song, iter : ${listSong.content}">
+                    <td th:text="${iter.count}"></td>
+                    <td th:text="${song.name}"></td>
+                    <td th:text="${song.artist}"></td>
+                    <td th:text="${song.kindOfMusic}"></td>
+                    <td>
+                        <audio controls th:src="@{'/audios/' + ${song.songPath}}"></audio>
+                    </td>
+                    <td><button class="btn btn-primary" ><a th:href="@{/web-app/{idUpdate}/update (idUpdate = ${song.id})}">update</a></button></td>
+                    <td><button th:data-name="${song.name}" th:data-id = "${song.id}" class="btn btn-danger"
+                                th:onclick="changeInfo(this.getAttribute('data-name'), this.getAttribute('data-id'))" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</button></td>
+                </tr>
+            </tbody>
+         </table>
+        <a th:if="${listSong.hasPrevious()}"
+            th:href="@{/web-app(page = ${listSong.number - 1}, nameSearch = ${nameSearch})}">Previous page</a>
+        <span th:each="pageNo: ${#numbers.sequence(0, listSong.totalPages - 1)}">
+            <a th:href="@{/web-app(page = ${pageNo}, nameSearch = ${nameSearch})}" th:text="${pageNo}"></a>
+        </span>
+        <a th:if="${listSong.hasNext()}" th:href="@{/web-app(page = ${listSong.number + 1}, nameSearch = ${nameSearch})}">Next
+            page</a>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/web-app/delete" method="post">
+                    <input id="idSongDelete" name="idSongDelete" type="hidden">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Remove this song?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to delete user whose name is <span id="songName"></span> and id is <span
+                            id="id"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="/layout :: footer"></footer>
+    <script th:replace="/layout :: bootstrap5"></script>
+    <script th:inline="javascript">
+        function changeInfo(songName, id) {
+            document.getElementById("songName").innerText = songName;
+            document.getElementById("id").innerText = id;
+            document.getElementById("idSongDelete").value = id;
+            console.log(name, id)
+        }
+    </script>
+</body>
+</html>

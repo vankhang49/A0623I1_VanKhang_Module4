@@ -21,9 +21,10 @@ public class BlogForm {
         this.content = content;
     }
 
-    public BlogForm(Long id, String user, String title, MultipartFile image, String content) {
+    public BlogForm(Long id, String user, Category category, String title, MultipartFile image, String content) {
         this.id = id;
         this.user = user;
+        this.category = category;
         this.title = title;
         this.image = image;
         this.content = content;

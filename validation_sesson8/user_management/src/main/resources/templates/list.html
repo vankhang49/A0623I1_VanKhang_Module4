@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="~{common_user::headerStudent}">
+
+</div>
+<div class="container">
+    <a href="/users/create">Create</a>
+    <form method="get" action="/users">
+        <input name="firstnameSearch" th:value="${firstnameSearch}" class="form-control">
+        <button class="btn btn-primary">Search</button>
+    </form>
+    <h1>List User</h1>
+    <table border="1" class="table table-hover" id="example">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, iter: ${listUser.content}">
+            <td th:text="${iter.count}"></td>
+            <td th:text="${user.firstname}"></td>
+            <td th:text="${user.lastname}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.phoneNumber}"></td>
+            <td th:text="${user.email}"></td>
+            <td><button class="btn btn-primary" ><a th:href="@{/users/{idUpdate}/update (idUpdate = ${user.id})}">update</a></button></td>
+            <td><button th:data-name="${user.firstname}" th:data-id = "${user.id}" class="btn btn-danger"
+                        th:onclick="changeInfo(this.getAttribute('data-name'), this.getAttribute('data-id'))" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:if="${listUser.hasPrevious()}" th:href="@{/users(page = ${listUser.number - 1}, firstnameSearch = ${firstnameSearch})}">Previous page</a>
+    <span th:each="pageNo: ${#numbers.sequence(0, listUser.totalPages - 1)}">
+        <a th:href="@{/users(page = ${pageNo}, firstnameSearch = ${firstnameSearch})}" th:text="${pageNo}"></a>
+    </span>
+    <a th:if="${listUser.hasNext()}" th:href="@{/users(page = ${listUser.number + 1}, firstnameSearch = ${firstnameSearch})}">Next page</a>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/users/delete" method="post">
+                <input id="idUserDelete" name="idUserDelete" type="hidden">
+            <div class="modal-header">
+                <h5 class="modal-title">Remove this song?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to delete user whose name is <span id="firstname"></span> and id is <span id="id"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="submit" class="btn btn-primary">Xác nhận</button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div th:insert="~{common_user :: footerStudent}">
+
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script th:inline="javascript">
+    function changeInfo(firstname, id) {
+        document.getElementById("firstname").innerText = firstname;
+        document.getElementById("id").innerText = id;
+        document.getElementById("idUserDelete").value = id;
+        console.log(name, id)
+    }
+</script>
+</html>
