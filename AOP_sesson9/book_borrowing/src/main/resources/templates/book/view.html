@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="container">
+        <h2 th:text="${book.name}"></h2>
+        <div class="author">
+            <span th:text="${book.author}"></span>
+        </div>
+      <div class="description">
+          <p th:text="${book.bookDescription}"></p>
+      </div>
+      <div class="amount">
+          <span th:text="${book.amountBook.amount}"></span>
+      </div>
+      <div class="button">
+          <button class="btn btn-light" th:onclick="|@{/books}|">Quay lại thư viện</button>
+          <button class="btn btn-danger" th:onclick="randomCode()" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">Mượn sách</button>
+      </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <form action="/borrowing/create" method="post">
+                  <input id="idBook" th:value="${book.id}" name="id" type="hidden">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Mã mượn sách:</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <p>Tên sách: <span id="nameBook" th:text="${book.name}"></span> và mã mượn: <span id="code"></span></p>
+                      <span class="text-danger">Vui lòng ghi nhớ mã mượn!</span>
+                  </div>
+                  <input type="hidden" name="code" id="codeBorrow"/>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                      <button type="submit" class="btn btn-primary">Xác nhận</button>
+                  </div>
+              </form>
+          </div>
+
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  <script th:inline="javascript">
+      function randomCode() {
+          let result = '';
+          const length = 5;
+          for (let i = 0; i < length; i++) {
+              const randomIndex = Math.floor(Math.random() * 10);
+              result += randomIndex;
+          }
+          document.getElementById("code").innerText = result;
+          document.getElementById("codeBorrow").value = result;
+          console.log(result);
+      }
+
+  </script>
+
+</body>
+</html>

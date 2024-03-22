@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/books">Back to library</a>
+<h1>List Borrower</h1>
+<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Mã mượn</th>
+        <th>Tên sách</th>
+        <th>Ngày mượn</th>
+    </tr>
+    <th:block th:each="bor, iter : ${borrowList}">
+        <tr>
+            <td th:text="${iter.count}"></td>
+            <td th:text="${bor.borrowedCode}"></td>
+            <td th:text="${bor.book.name}"></td>
+            <td th:text="${bor.date}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
